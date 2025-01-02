@@ -31,12 +31,12 @@ const updateflag = (element) => {
   img.src = newSrc;
 };
 
-button.addEventListener("click", (evnt) => {
+button.addEventListener("click", async (evnt) => {
   evnt.preventDefault();
-  update_exchange_rate();
+  updated_exchange_rate();
 });
 
-const update_exchnage_rate= async()=>{
+const updated_exchange_rate = async () => {
   let amount = document.querySelector("#amount");
   let amount_value = parseFloat(amount.value);
 
@@ -58,9 +58,9 @@ const update_exchnage_rate= async()=>{
       const convertedAmount = (amount_value * conversionRate).toFixed(2);
 
       // Display result
-      document.getElementById("result").innerHTML = `
-        <p>${amount_value} ${fromCurr.value} = ${convertedAmount} ${toCurr.value}</p>
-      `;
+      document.getElementById(
+        "result"
+      ).innerHTML = `<p>${amount_value} ${fromCurr.value} = ${convertedAmount} ${toCurr.value}</p>`;
     } else {
       throw new Error(data["error-type"]);
     }
@@ -68,7 +68,7 @@ const update_exchnage_rate= async()=>{
     console.error("Error fetching exchange rates:", error);
     alert("Failed to fetch exchange rates. Please try again.");
   }
-}
+};
 window.addEventListener("load",()=>{
-update_exchange_rate();
+  updated_exchange_rate();
 });
