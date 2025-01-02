@@ -10,9 +10,9 @@ for (let select of input_selector) {
     let new_option = document.createElement("option");
     new_option.innerHTML = currCode;
     new_option.value = currCode;
-    if (select.id === "from-currency" && currCode === "BDT") {
+    if (select.id === "from-currency" && currCode === "USD") {
       new_option.selected = "selected";
-    } else if (select.id === "to-currency" && currCode === "USD") {
+    } else if (select.id === "to-currency" && currCode === "BDT") {
       new_option.selected = "selected";
     }
     select.append(new_option);
