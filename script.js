@@ -33,7 +33,10 @@ const updateflag = (element) => {
 
 button.addEventListener("click", async (evnt) => {
   evnt.preventDefault();
+  update_exchange_rate();
+});
 
+const update_exchnage_rate=()>{
   let amount = document.querySelector("#amount");
   let amount_value = parseFloat(amount.value);
 
@@ -65,4 +68,7 @@ button.addEventListener("click", async (evnt) => {
     console.error("Error fetching exchange rates:", error);
     alert("Failed to fetch exchange rates. Please try again.");
   }
-});
+}
+window.addEventListener("load",()=>{
+update_exchange_rate();
+})
