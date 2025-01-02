@@ -31,12 +31,12 @@ const updateflag = (element) => {
   img.src = newSrc;
 };
 
-button.addEventListener("click", async (evnt) => {
+button.addEventListener("click", (evnt) => {
   evnt.preventDefault();
   update_exchange_rate();
 });
 
-const update_exchnage_rate=()>{
+const update_exchnage_rate= async()=>{
   let amount = document.querySelector("#amount");
   let amount_value = parseFloat(amount.value);
 
@@ -71,4 +71,4 @@ const update_exchnage_rate=()>{
 }
 window.addEventListener("load",()=>{
 update_exchange_rate();
-})
+});
